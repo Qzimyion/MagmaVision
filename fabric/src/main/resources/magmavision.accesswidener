@@ -1,0 +1,5 @@
+accessWidener v1 named
+
+accessible field net/minecraft/client/renderer/chunk/ChunkRenderDispatcher$RenderChunk dirty Z
+accessible field net/minecraft/client/renderer/ViewArea chunkGridSizeX I
+accessible field net/minecraft/client/renderer/ViewArea chunkGridSizeZ I

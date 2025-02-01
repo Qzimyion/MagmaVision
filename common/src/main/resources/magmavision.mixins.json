@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "com.qzimyion.magmavision.core.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+    "LavaFogRendererMixin",
+    "LevelRendererAccessor"
+  ],
+  "mixins": [
+    "PotionBrewingInvoker"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "magmavision",
+  "version": "${version}",
+  "name": "Magma Vision",
+  "description": "Adds a new Magma vision effect and potions which allows you to see through lava and the dense fog inside it.",
+  "authors": [
+    "Qzimyion"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/magmavision/logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.qzimyion.magmavision.MVFabric"
+    ],
+    "client": [
+      "com.qzimyion.magmavision.client.MVFabricClient"
+    ],
+    "fabric-datagen": [
+      "com.qzimyion.magmavision.datagen.MVDatagen"
+    ]
+  },
+  "mixins": [
+    "magmavision.mixins.json"
+  ],
+  "accessWidener": "magmavision.accesswidener",
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "architectury": ">=9.2.14",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
