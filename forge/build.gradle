@@ -40,6 +40,10 @@ dependencies {
     shadowBundle project(path: ':common', configuration: 'transformProductionForge')
 }
 
+loom {
+    accessWidenerPath = file("src/main/resources/magmavision.accesswidener")
+}
+
 processResources {
     inputs.property 'version', project.version
     inputs.property 'description', project.description

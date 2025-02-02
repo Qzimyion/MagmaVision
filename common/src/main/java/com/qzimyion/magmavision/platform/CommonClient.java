@@ -12,4 +12,10 @@ public class CommonClient {
     public static <T extends Fluid> void setRenderLayer(Supplier<T> fluid, RenderType renderType) {
         throw new AssertionError();
     }
+
+
+    @ExpectPlatform
+    public static boolean isModLoaded(String name) {
+        throw new AssertionError();
+    }
 }
