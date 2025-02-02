@@ -43,6 +43,7 @@ dependencies {
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive false }
     shadowBundle project(path: ':common', configuration: 'transformProductionFabric')
+    modCompileOnly("maven.modrinth:sodium:${project.sodium_version}")
 }
 
 processResources {

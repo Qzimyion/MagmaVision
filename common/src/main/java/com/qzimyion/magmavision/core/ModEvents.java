@@ -13,15 +13,19 @@ import net.minecraft.world.level.material.Fluids;
 
 public class ModEvents {
     public static void updateChunks() {
-        Minecraft minecraft = Minecraft.getInstance();
-        ClientLevel world = minecraft.level;
-        LevelRenderer levelRenderer = minecraft.levelRenderer;
-        if (world != null) {
-            ViewArea chunkMap = ((LevelRendererAccessor) levelRenderer).viewArea();
-            if (chunkMap != null) {
-                for (ChunkRenderDispatcher.RenderChunk chunk : chunkMap.chunks) {
-                    if (chunk != null) {
-                        chunk.setDirty(true);
+        if (CommonClient.isModLoaded("sodium")){
+            Minecraft.getInstance().levelRenderer.allChanged();
+        } else {
+            Minecraft minecraft = Minecraft.getInstance();
+            ClientLevel world = minecraft.level;
+            LevelRenderer levelRenderer = minecraft.levelRenderer;
+            if (world != null) {
+                ViewArea chunkMap = ((LevelRendererAccessor) levelRenderer).viewArea();
+                if (chunkMap != null) {
+                    for (ChunkRenderDispatcher.RenderChunk chunk : chunkMap.chunks) {
+                        if (chunk != null) {
+                            chunk.setDirty(true);
+                        }
                     }
                 }
             }
