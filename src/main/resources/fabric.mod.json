@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "magma-vision",
+	"version": "${version}",
+	"name": "Magma Vision",
+	"description": "Adds a new statuf effect that allows the player to see through lava easily",
+	"authors": [
+		"Qzimyion"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/user/Qzimyion",
+		"sources": "https://github.com/Qzimyion/MagmaVision"
+	},
+	"license": "MIT",
+	"icon": "assets/magma-vision/icon.png",
+	"environment": "client & server",
+	"entrypoints": {
+		"main": [
+			"com.qzimyion.MagmaVision"
+		],
+		"client": [
+			"com.qzimyion.MagmaVision"
+		]
+	},
+	"mixins": [
+		"magma-vision.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"bfr": "*"
+	}
+}

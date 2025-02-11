@@ -1,0 +1,11 @@
+{
+  "effect.magma-vision.magma_vision": "Magma Vision",
+  "item.minecraft.potion.effect.magma_vision": "Potion of Magma Vision",
+  "item.minecraft.potion.effect.long_magma_vision": "Potion of Magma Vision",
+  "item.minecraft.splash_potion.effect.magma_vision": "Splash Potion of Magma Vision",
+  "item.minecraft.splash_potion.effect.long_magma_vision": "Splash Potion of Magma Vision",
+  "item.minecraft.lingering_potion.effect.magma_vision": "Lingering Potion of Magma Vision",
+  "item.minecraft.lingering_potion.effect.long_magma_vision": "Lingering Potion of Magma Vision",
+  "item.minecraft.tipped_arrow.effect.magma_vision": "Arrow of Magma Vision",
+  "item.minecraft.tipped_arrow.effect.long_magma_vision": "Arrow of Magma Vision"
+}
