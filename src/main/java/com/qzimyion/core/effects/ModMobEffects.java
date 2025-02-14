@@ -9,10 +9,10 @@ import net.minecraft.world.effect.MobEffect;
 
 public class ModMobEffects {
 
-    public static final Holder<MobEffect> MAGMA_VISION = ModMobEffects.register("magma_vision", new MagmaVisionMobEffect());
+    public static final Holder<MobEffect> MAGMA_VISION;
 
-    private static Holder<MobEffect> register(String id, MobEffect statusEffect) {
-        return Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, ResourceLocation.tryBuild(MagmaVision.MOD_ID, id), statusEffect);
+    static {
+        MAGMA_VISION = Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, ResourceLocation.tryBuild(MagmaVision.MOD_ID, "magma_vision"), new MagmaVisionMobEffect());
     }
 
     public static void register(){
