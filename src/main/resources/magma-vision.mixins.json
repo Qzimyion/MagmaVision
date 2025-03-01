@@ -9,6 +9,8 @@
   },
   "client": [
     "LavaFogRendererMixin",
-    "LevelRendererAccessor"
+    "LevelRendererAccessor",
+    "MinecraftClientMixin",
+    "RenderLayersMixin"
   ]
 }
