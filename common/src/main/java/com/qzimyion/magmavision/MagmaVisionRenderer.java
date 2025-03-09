@@ -15,7 +15,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -24,7 +23,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class MagmaVisionRenderer extends LiquidBlockRenderer {
 
     private static boolean isNeighborSameFluid(FluidState fluidState, FluidState fluidState2) {
-        return fluidState2.getType().isSame(fluidState.getType());
+        return !fluidState2.getType().isSame(fluidState.getType());
     }
 
     private int getLightColor(BlockAndTintGetter blockAndTintGetter, BlockPos blockPos) {
@@ -38,7 +37,7 @@ public class MagmaVisionRenderer extends LiquidBlockRenderer {
     }
 
     private static boolean isFaceOccludedByNeighbor(BlockGetter blockGetter, BlockPos blockPos, Direction direction, float f, BlockState blockState) {
-        return isFaceOccludedByState(blockGetter, direction, f, blockPos.relative(direction), blockState);
+        return !isFaceOccludedByState(blockGetter, direction, f, blockPos.relative(direction), blockState);
     }
 
     private static boolean isFaceOccludedByState(BlockGetter blockGetter, Direction direction, float f, BlockPos blockPos, BlockState blockState) {
@@ -52,7 +51,7 @@ public class MagmaVisionRenderer extends LiquidBlockRenderer {
     }
 
     public static boolean shouldRenderFace(BlockAndTintGetter blockAndTintGetter, BlockPos blockPos, FluidState fluidState, BlockState blockState, Direction direction, FluidState fluidState2) {
-        return !isFaceOccludedBySelf(blockAndTintGetter, blockPos, blockState, direction) && !isNeighborSameFluid(fluidState, fluidState2);
+        return !isFaceOccludedBySelf(blockAndTintGetter, blockPos, blockState, direction) && isNeighborSameFluid(fluidState, fluidState2);
     }
 
     private static boolean isFaceOccludedBySelf(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState, Direction direction) {
@@ -127,8 +126,8 @@ public class MagmaVisionRenderer extends LiquidBlockRenderer {
                 FluidState fluidState6 = blockState6.getFluidState();
                 BlockState blockState7 = blockAndTintGetter.getBlockState(blockPos.relative(Direction.EAST));
                 FluidState fluidState7 = blockState7.getFluidState();
-                boolean bl2 = !isNeighborSameFluid(fluidState, fluidState3);
-                boolean bl3 = shouldRenderFace(blockAndTintGetter, blockPos, fluidState, blockState, Direction.DOWN, fluidState2) && !isFaceOccludedByNeighbor(blockAndTintGetter, blockPos, Direction.DOWN, 0.8888889F, blockState2);
+                boolean bl2 = isNeighborSameFluid(fluidState, fluidState3);
+                boolean bl3 = shouldRenderFace(blockAndTintGetter, blockPos, fluidState, blockState, Direction.DOWN, fluidState2) && isFaceOccludedByNeighbor(blockAndTintGetter, blockPos, Direction.DOWN, 0.8888889F, blockState2);
                 boolean bl4 = shouldRenderFace(blockAndTintGetter, blockPos, fluidState, blockState, Direction.NORTH, fluidState4);
                 boolean bl5 = shouldRenderFace(blockAndTintGetter, blockPos, fluidState, blockState, Direction.SOUTH, fluidState5);
                 boolean bl6 = shouldRenderFace(blockAndTintGetter, blockPos, fluidState, blockState, Direction.WEST, fluidState6);
@@ -163,7 +162,7 @@ public class MagmaVisionRenderer extends LiquidBlockRenderer {
                     double e = blockPos.getY() & 15;
                     double w = (blockPos.getZ() & 15);
                     float y = bl3 ? 0.001F : 0.0F;
-                    if (bl2 && !isFaceOccludedByNeighbor(blockAndTintGetter, blockPos, Direction.UP, Math.min(Math.min(p, r), Math.min(q, o)), blockState3)) {
+                    if (bl2 && isFaceOccludedByNeighbor(blockAndTintGetter, blockPos, Direction.UP, Math.min(Math.min(p, r), Math.min(q, o)), blockState3)) {
                         p -= 0.001F;
                         r -= 0.001F;
                         q -= 0.001F;
@@ -292,7 +291,7 @@ public class MagmaVisionRenderer extends LiquidBlockRenderer {
                                 bl8 = bl7;
                         }
 
-                        if (bl8 && !isFaceOccludedByNeighbor(blockAndTintGetter, blockPos, direction, Math.max(af, aa), blockAndTintGetter.getBlockState(blockPos.relative(direction)))) {
+                        if (bl8 && isFaceOccludedByNeighbor(blockAndTintGetter, blockPos, direction, Math.max(af, aa), blockAndTintGetter.getBlockState(blockPos.relative(direction)))) {
                             TextureAtlasSprite textureAtlasSprite2 = sprites[1];
                             float av = textureAtlasSprite2.getU(0.0F);
                             float aw = textureAtlasSprite2.getU(8.0F);
@@ -324,6 +323,6 @@ public class MagmaVisionRenderer extends LiquidBlockRenderer {
     }
 
     public void vertexWithCustomAlpha(VertexConsumer vertexConsumer, double x, double y, double z, float r, float g, float b, float u, float v, int packedLight) {
-        vertexConsumer.vertex(x, y, z).color(r, g, b, 0.99F).uv(u, v).uv2(packedLight).normal(0.0F, 1.0F, 0.0F).endVertex();
+        vertexConsumer.vertex(x, y, z).color(r, g, b, 0.65F).uv(u, v).uv2(packedLight).normal(0.0F, 1.0F, 0.0F).endVertex();
     }
 }
