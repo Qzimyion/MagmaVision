@@ -1,5 +1,6 @@
 package com.qzimyion.magmavision.common.registries;
 
+import com.qzimyion.magmavision.MVCommon;
 import com.qzimyion.magmavision.core.MagmaVision;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
@@ -15,5 +16,6 @@ public class ModMobEffects {
 
     public static void register(){
         EFFECTS.register();
+        MVCommon.LOGGER.info("Registering mod effects");
     }
 }

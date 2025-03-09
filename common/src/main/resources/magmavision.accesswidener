@@ -3,3 +3,8 @@ accessWidener v2 named
 accessible field net/minecraft/client/renderer/chunk/ChunkRenderDispatcher$RenderChunk dirty Z
 accessible method net/minecraft/client/renderer/LevelRenderer setSectionDirty (IIIZ)V
 accessible field net/minecraft/client/renderer/block/BlockRenderDispatcher liquidBlockRenderer Lnet/minecraft/client/renderer/block/LiquidBlockRenderer;
+mutable field net/minecraft/client/renderer/block/BlockRenderDispatcher liquidBlockRenderer Lnet/minecraft/client/renderer/block/LiquidBlockRenderer;
+accessible field net/minecraft/client/renderer/block/LiquidBlockRenderer lavaIcons [Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;
+accessible method net/minecraft/client/renderer/texture/TextureAtlasSprite <init> (Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/client/renderer/texture/SpriteContents;IIII)V
+accessible field net/minecraft/client/renderer/block/LiquidBlockRenderer waterIcons [Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;
+accessible field net/minecraft/client/renderer/block/LiquidBlockRenderer waterOverlay Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;

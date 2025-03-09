@@ -1,5 +1,6 @@
 package com.qzimyion.magmavision.common.registries;
 
+import com.qzimyion.magmavision.MVCommon;
 import com.qzimyion.magmavision.core.mixin.PotionBrewingInvoker;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
@@ -23,6 +24,7 @@ public class ModPotions {
 
     public static void register(){
         POTIONS.register();
+        MVCommon.LOGGER.info("Registering mod potions");
     }
 
 }

@@ -30,6 +30,10 @@ configurations {
     }
 }
 
+loom {
+    accessWidenerPath = project(":common").loom.accessWidenerPath
+}
+
 dependencies {
     forge "net.minecraftforge:forge:$rootProject.forge_version"
 
@@ -38,10 +42,6 @@ dependencies {
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive false }
     shadowBundle project(path: ':common', configuration: 'transformProductionForge')
-}
-
-loom {
-    accessWidenerPath = file("src/main/resources/magmavision.accesswidener")
 }
 
 processResources {
