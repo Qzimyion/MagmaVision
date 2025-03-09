@@ -7,6 +7,7 @@ import net.minecraft.client.renderer.block.LiquidBlockRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.BlockGetter;
@@ -107,8 +108,8 @@ public class MagmaVisionRenderer extends LiquidBlockRenderer {
     @Override
     public void tesselate(BlockAndTintGetter blockAndTintGetter, BlockPos blockPos, VertexConsumer vertexConsumer, BlockState blockState, FluidState fluidState) {
         try{
-            Fluid fluid = fluidState.getType();
-            if (fluid == Fluids.LAVA || fluid == Fluids.FLOWING_LAVA) {
+            if (fluidState.is(FluidTags.LAVA)) {
+                Fluid fluid = fluidState.getType();
                 TextureAtlasSprite[] sprites = this.lavaIcons;
                 int i = 16777215;
                 float f = (float) (i >> 16 & 255) / 255.0F;
@@ -322,7 +323,7 @@ public class MagmaVisionRenderer extends LiquidBlockRenderer {
         }
     }
 
-    private void vertexWithCustomAlpha(VertexConsumer vertexConsumer, double x, double y, double z, float r, float g, float b, float u, float v, int packedLight) {
-        vertexConsumer.vertex(x, y, z).color(r, g, b, 0.45f).uv(u, v).uv2(packedLight).normal(0.0F, 1.0F, 0.0F).endVertex();
+    public void vertexWithCustomAlpha(VertexConsumer vertexConsumer, double x, double y, double z, float r, float g, float b, float u, float v, int packedLight) {
+        vertexConsumer.vertex(x, y, z).color(r, g, b, 0.99F).uv(u, v).uv2(packedLight).normal(0.0F, 1.0F, 0.0F).endVertex();
     }
 }
