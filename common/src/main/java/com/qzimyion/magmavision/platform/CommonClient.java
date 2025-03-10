@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 public class CommonClient {
 
     @ExpectPlatform
-    public static <T extends Fluid> void setRenderLayer(Supplier<T> fluid, RenderType renderType) {
+    public static void setRenderLayer(Fluid fluid, RenderType renderType) {
         throw new AssertionError();
     }
 

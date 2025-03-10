@@ -51,8 +51,7 @@ public class MVClient {
                 }
             }
             previousMagmaVision = minecraft.player.hasEffect(ModMobEffects.MAGMA_VISION.get());
+            MVCommon.LOGGER.info("Registering mod events");
         });
-
-        MVCommon.LOGGER.info("Registering mod events");
     }
 }

@@ -8,10 +8,9 @@ import net.minecraft.world.level.material.Fluid;
 import java.util.function.Supplier;
 
 public class CommonClientImpl {
-    public static <T extends Fluid> void setRenderLayer(Supplier<T> fluid, RenderType renderType) {
-        BlockRenderLayerMap.INSTANCE.putFluid(fluid.get(), renderType);
+    public static void setRenderLayer(Fluid fluid, RenderType renderType) {
+        BlockRenderLayerMap.INSTANCE.putFluid(fluid, renderType);
     }
-
 
     public static boolean isModLoaded(String name) {
        return FabricLoader.getInstance().isModLoaded(name);

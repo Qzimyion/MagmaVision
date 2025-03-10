@@ -318,7 +318,7 @@ public class MagmaVisionRenderer extends LiquidBlockRenderer {
             } else {
                 super.tesselate(blockAndTintGetter, blockPos, vertexConsumer, blockState, fluidState);
             }
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
     }
 
